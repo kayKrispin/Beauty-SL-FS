@@ -1,0 +1,18 @@
+.homeContainer {
+	margin: 0;
+	padding: 0;
+	height: 100vh;
+	background-position: center;
+	background-image: url("../../assets/images/such_skysight.jpeg");
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.homeTitle {
+	color: red;
+	font-size: 42px;
+	margin-top: 0;
+	margin-bottom: 20px;
+}

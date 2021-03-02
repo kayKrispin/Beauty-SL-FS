@@ -26,9 +26,13 @@
     ]
   },
   "dependencies": {
+    "axios": "0.21.1",
     "next": "10.0.7",
     "react": "17.0.1",
-    "react-dom": "17.0.1"
+    "react-calendar": "3.3.1",
+    "react-dom": "17.0.1",
+    "react-hook-form": "6.15.4",
+    "sass": "1.32.8"
   },
   "devDependencies": {
     "@commitlint/cli": "12.0.1",
