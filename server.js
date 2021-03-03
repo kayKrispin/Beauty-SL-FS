@@ -1,7 +1,7 @@
 import express from 'express';
 import next from 'next';
 import bodyParser from 'body-parser';
-
+import cors from 'cors';
 import indexRouter from './src/db/routes';
 
 import pg from 'pg';
@@ -30,6 +30,7 @@ app.prepare().then(() => {
     });
   });
 
+  server.use(cors({ credentials: true, origin: true }));
   server.use(bodyParser.json());
   server.use(
     bodyParser.urlencoded({
