@@ -1,7 +1,7 @@
 import React from 'react';
+import { useFormContext } from 'react-hook-form';
 
 import styles from './Select.module.scss';
-import { useFormContext } from 'react-hook-form';
 
 type Props = {
   name: string;
