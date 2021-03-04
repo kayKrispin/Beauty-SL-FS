@@ -2,8 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="570307fc-54d6-4d5b-86d0-4d8824ba5842" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/db/controllers/serviceOptions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/db/dbConnect.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/db/migrations/20210304215002-create-service-option.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/db/models/serviceoption.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/db/routes/service.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/FormElements/TimePicker/TimePicker.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/FormElements/TimePicker/TimePicker.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.eslintrc" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.husky/pre-commit" beforeDir="false" afterPath="$PROJECT_DIR$/.husky/pre-commit" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.sequelizerc" beforeDir="false" afterPath="$PROJECT_DIR$/.sequelizerc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
@@ -12,7 +21,6 @@
       <change beforePath="$PROJECT_DIR$/src/api/serviceApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/serviceApi.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Signup/SignupForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Signup/SignupForm.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/db/controllers/service.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/controllers/service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/db/migrations/20210303133330-create-service.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/db/models/service.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/models/service.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/db/routes/index.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.tsx" afterDir="false" />
@@ -31,12 +39,38 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/_app.tsx">
+        <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="e#0#36#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="741">
+              <caret line="80" column="1" lean-forward="true" selection-start-line="80" selection-start-column="1" selection-end-line="80" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.prettierrc">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.commitlintrc.json">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.husky/pre-commit">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.sequelizerc">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
             </state>
           </provider>
         </entry>
@@ -71,11 +105,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/Signup/SignupForm.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="33" column="64" selection-start-line="33" selection-start-column="64" selection-end-line="33" selection-end-column="64" />
+            <state relative-caret-position="315">
+              <caret line="28" column="6" selection-start-line="28" selection-start-column="6" selection-end-line="28" selection-end-column="6" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
                 <element signature="e#264#325#0" expanded="true" />
@@ -96,48 +130,6 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.eslintrc">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="40" column="39" selection-start-line="40" selection-start-column="39" selection-end-line="40" selection-end-column="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/api/serviceApi.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" selection-start-line="2" selection-end-line="2" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/api/index.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" selection-start-line="6" selection-end-line="6" />
-              <folding>
-                <element signature="e#0#27#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/api/constants.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="49" selection-start-column="49" selection-end-column="49" />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
@@ -149,9 +141,10 @@
       <find>Loaded</find>
       <find>dotenv</find>
       <find>commitizen</find>
-      <find>lint-staged</find>
       <find>pg</find>
       <find>conString</find>
+      <find>lin</find>
+      <find>lint-staged</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -160,7 +153,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/shared/FormElements/DatePicker/DatePicker.tsx" />
         <option value="$PROJECT_DIR$/src/shared/FormElements/Input/Input.module.scss" />
         <option value="$PROJECT_DIR$/src/shared/FormElements/Input/Input.tsx" />
         <option value="$PROJECT_DIR$/src/shared/FormElements/Select/Select.module.scss" />
@@ -180,7 +172,6 @@
         <option value="$PROJECT_DIR$/src/db/routes/index.js" />
         <option value="$PROJECT_DIR$/src/db/models/index.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/db/migrations/20210304111932-service.js" />
         <option value="$PROJECT_DIR$/src/db/config/config.json" />
         <option value="$PROJECT_DIR$/.sequelizerc" />
@@ -211,6 +202,8 @@
         <option value="$PROJECT_DIR$/.eslintrc" />
         <option value="$PROJECT_DIR$/src/shared/FormElements/Select/Select.tsx" />
         <option value="$PROJECT_DIR$/src/components/Signup/SignupForm.tsx" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/.husky/pre-commit" />
       </list>
     </option>
   </component>
@@ -231,6 +224,11 @@
             <path>
               <item name="ts-next" type="b2602c69:ProjectViewProjectNode" />
               <item name="ts-next" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ts-next" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ts-next" type="462c0819:PsiDirectoryNode" />
+              <item name=".husky" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ts-next" type="b2602c69:ProjectViewProjectNode" />
@@ -323,12 +321,12 @@
       <updated>1614718106237</updated>
       <workItem from="1614718107605" duration="2382000" />
       <workItem from="1614759822387" duration="18391000" />
-      <workItem from="1614845702740" duration="12727000" />
+      <workItem from="1614845702740" duration="12869000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35893000" />
+    <option name="totallyTimeSpent" value="36035000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="1013" extended-state="0" />
@@ -359,23 +357,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/shared/FormElements/Input/Input.module.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/shared/FormElements/Input/Input.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="17" column="6" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.editorconfig">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -399,9 +380,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/api/service.ts" />
     <entry file="file://$PROJECT_DIR$/package-lock.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.prettierrc">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/api/index.ts" />
@@ -444,13 +422,6 @@
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="794">
-          <caret line="59" column="29" selection-start-line="59" selection-start-column="29" selection-end-line="59" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -524,13 +495,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.sequelizerc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>
@@ -672,12 +636,39 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Signup/SignupForm.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="33" column="64" selection-start-line="33" selection-start-column="64" selection-end-line="33" selection-end-column="64" />
+        <state relative-caret-position="315">
+          <caret line="28" column="6" selection-start-line="28" selection-start-column="6" selection-end-line="28" selection-end-column="6" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
             <element signature="e#264#325#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.sequelizerc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="741">
+          <caret line="80" column="1" lean-forward="true" selection-start-line="80" selection-start-column="1" selection-end-line="80" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.prettierrc">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.commitlintrc.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.husky/pre-commit">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
