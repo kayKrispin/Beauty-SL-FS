@@ -1,9 +1,9 @@
-const Service = require('../models').Service;
+const { Service } = require(`../models`);
 
 module.exports = {
   list(req, res) {
     return Service.findAll()
-      .then((forums) => res.status(200).send(forums))
+      .then((services) => res.status(200).send(services))
       .catch((error) => {
         res.status(400).send(error);
       });
@@ -15,9 +15,10 @@ module.exports = {
       service: req.body.service,
       email: req.body.email,
       phone: req.body.phone,
+      time: req.body.time,
       instagramName: req.body.instagramName,
     })
-      .then((profile) => res.status(201).send(profile))
+      .then((service) => res.status(201).send(service))
       .catch((error) => res.status(400).send(error));
   },
 };

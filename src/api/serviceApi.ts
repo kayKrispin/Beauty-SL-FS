@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { API_URL } from './constants';
 
-
 const serviceApi =   {
   async create(data: any) {
     try {
