@@ -88,8 +88,10 @@ function SignupForm() {
         return updatedArray;
       })
       .filter((item: any) => [...item])
-      .flat(),
+      .reduce((acc: any, val: any) => [...acc, ...val], []),
   ];
+
+  console.log(disabledHours)
 
   if (loading) return <div>Loading...</div>;
 

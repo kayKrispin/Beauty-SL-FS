@@ -30,11 +30,12 @@ function Select({ name, label, options }: Props) {
         className={styles.slMainSelect}
         name={name}
       >
-        {options.map((option: Option) => (
-          <option key={option.label} value={option.id}>
-            {option.label}
-          </option>
-        ))}
+        {options &&
+          options.map((option: Option) => (
+            <option key={option.label} value={option.id}>
+              {option.label}
+            </option>
+          ))}
       </select>
     </div>
   );
