@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import moment from 'moment';
-import useSwr from 'swr';
+import moment, { Moment } from 'moment';
 
+import { useOptions } from '@/hooks/useOptions';
+import { useGetServiceDay } from '@/hooks/useGetServiceDay';
+import { calculateDayLoading } from '@/helpers';
 import styles from './SignupForm.module.scss';
 
 import serviceApi from '../../api/serviceApi';
@@ -14,30 +16,80 @@ import Input from '../../shared/FormElements/Input/Input';
 import Button from '../../shared/Button/Button';
 import TimePicker from '../../shared/FormElements/TimePicker/TimePicker';
 
-const MOMENT_FORMAT = `HH:mm`;
-const NOW = moment().hour(14).minute(30);
+const TIME_FORMAT = `HH:mm`;
+const DATE_FORMAT = `MM-DD`;
+
+type Service = {
+  id: number;
+  time: string;
+  timeToComplete: string;
+};
+
+type FormValues = {
+  phone: string;
+  instagramName: string;
+  email: string;
+  time: Moment | string | any;
+  date: string | Date;
+  service: Service | string;
+};
+
+const formatDate = (date: Date | any) => moment(date).format(DATE_FORMAT);
 
 function SignupForm() {
   const [isSubmitted, setSubmitted] = useState(false);
-  const { data, error } = useSwr(`/serviceOptions`);
-  const loading = !data && !error;
+  const [busyTime, setBusyTime] = useState<any>([]);
+  const { data, loading } = useOptions();
 
-  const methods = useForm({
+  const methods = useForm<FormValues>({
     defaultValues: {
       date: new Date(),
-      time: NOW,
+      time: null,
     },
+    reValidateMode: `onChange`,
+    mode: `onChange`,
   });
+  // Get all reacords from specific day
+  const serviceDays = useGetServiceDay(formatDate(methods.watch(`date`)));
 
-  const onSubmit = (values: any) => {
-    values.time = values.time.format(MOMENT_FORMAT);
-    values.service = data.find(
-      (el: any) => el.id.toString() === values.service,
+  const getValues = (values: FormValues) => {
+    values.time = values.time && values.time.format(TIME_FORMAT);
+    values.date = formatDate(values.date);
+    values.service = JSON.stringify(
+      data.find((el: any) => el.id.toString() === values.service),
     );
-    serviceApi.create(values).then(() => {
+
+    return values;
+  };
+
+  // Define witch hours are unavailable
+  useEffect(() => {
+    const salonBusyTime = calculateDayLoading(serviceDays?.serviceDay);
+    setBusyTime(salonBusyTime);
+  }, [serviceDays?.serviceDay]);
+
+  const onSubmit = (values: FormValues) => {
+    const formattedValues = getValues(values);
+
+    serviceApi.create(formattedValues).then(() => {
       setSubmitted(true);
     });
   };
+
+  const disabledHours = busyTime && [
+    ...busyTime
+      ?.map((el: any) => {
+        const updatedArray = [];
+        if (el.hour) updatedArray.push(+el.hour);
+
+        if (el.secondHour) updatedArray.push(+el.secondHour);
+        if (el.thirdHour) updatedArray.push(+el.thirdHour);
+
+        return updatedArray;
+      })
+      .filter((item: any) => [...item])
+      .flat(),
+  ];
 
   if (loading) return <div>Loading...</div>;
 
@@ -52,7 +104,12 @@ function SignupForm() {
             <DatePicker name="date" />
             <Input name="email" label="Eмейл" placeholder="напиши емейл" />
             <Input name="phone" label="Teлефон" placeholder="напиши телефон" />
-            <TimePicker label="Time" name="time" placeholder="напиши час" />
+            <TimePicker
+              disabledHours={disabledHours}
+              label="Time"
+              name="time"
+              placeholder="напиши час"
+            />
             <Input
               name="instagramName"
               label="Iнстаграм нік"

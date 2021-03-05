@@ -12,9 +12,14 @@ type Props = {
   placeholder?: string;
   className?: string;
   textCenter?: boolean;
+  disabledHours?: string[];
 };
 
-function TimePickerWrapper({ name, label }: Props) {
+function disabledHoursDefault(additionalHours: any) {
+  return [0, 1, 2, 3, 4, 5, 6, 7, 8, 19, 20, 21, 22, 23, ...additionalHours];
+}
+
+function TimePickerWrapper({ name, label, disabledHours }: Props) {
   const methods = useFormContext();
 
   const formProps: { [key: string]: any } = {};
@@ -25,11 +30,14 @@ function TimePickerWrapper({ name, label }: Props) {
 
   return (
     <div className={styles.slTimePicker}>
-      <label className={styles.slLabel}>{label}</label>
+      <label htmlFor={name} className={styles.slLabel}>
+        {label}
+      </label>
       <Controller
         name={name}
         render={({ value, onChange }) => (
           <TimePicker
+            disabledHours={() => disabledHoursDefault(disabledHours)}
             showSecond={false}
             onChange={onChange}
             value={value}
