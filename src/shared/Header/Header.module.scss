@@ -1,0 +1,25 @@
+.header {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  div:last-child {
+    display: flex;
+  }
+}
+
+.headerImg {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  margin-right: 1rem;
+  border-radius: 50%;
+}
+
+.headerLogoutBtn {
+  width: 200px;
+  height: 50px;
+  margin-top: 0;
+}

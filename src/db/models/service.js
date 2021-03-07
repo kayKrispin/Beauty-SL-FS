@@ -8,6 +8,7 @@ module.exports = (sequelize, DataTypes) => {
       service: DataTypes.STRING,
       date: DataTypes.STRING,
       time: DataTypes.STRING,
+      isAccepted: DataTypes.BOOLEAN
     },
     {},
   );

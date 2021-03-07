@@ -1,7 +1,27 @@
 .formContainer {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  flex-direction: row;
+  min-width: 900px;
+  justify-content: space-around;
+  align-items: initial;
   text-align: center;
+}
+
+.formContainerInner {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.formContainerProviderTitle {
+  color: red;
+  font-weight: 600;
+  margin-bottom: 0;
+  font-size: 24px;
+  margin-top: 0;
+}
+
+
+.formContainerProvider {
+  max-width: 500px;
 }

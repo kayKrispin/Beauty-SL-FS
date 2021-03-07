@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
+import Link from 'next/link';
+
 import moment, { Moment } from 'moment';
 
 import { useOptions } from '@/hooks/useOptions';
@@ -16,6 +18,7 @@ import Input from '../../shared/FormElements/Input/Input';
 import Button from '../../shared/Button/Button';
 import TimePicker from '../../shared/FormElements/TimePicker/TimePicker';
 
+// time formats
 const TIME_FORMAT = `HH:mm`;
 const DATE_FORMAT = `MM-DD`;
 
@@ -32,11 +35,16 @@ type FormValues = {
   time: Moment | string | any;
   date: string | Date;
   service: Service | string;
+  isAccepted: boolean;
+};
+
+type Props = {
+  children: React.ReactNode;
 };
 
 const formatDate = (date: Date | any) => moment(date).format(DATE_FORMAT);
 
-function SignupForm() {
+export default function SignupForm({ children }: Props) {
   const [isSubmitted, setSubmitted] = useState(false);
   const [busyTime, setBusyTime] = useState<any>([]);
   const { data, loading } = useOptions();
@@ -49,10 +57,12 @@ function SignupForm() {
     reValidateMode: `onChange`,
     mode: `onChange`,
   });
-  // Get all reacords from specific day
+
+  // Get all records from specific day
   const serviceDays = useGetServiceDay(formatDate(methods.watch(`date`)));
 
   const getValues = (values: FormValues) => {
+    values.isAccepted = false;
     values.time = values.time && values.time.format(TIME_FORMAT);
     values.date = formatDate(values.date);
     values.service = JSON.stringify(
@@ -63,19 +73,6 @@ function SignupForm() {
   };
 
   // Define witch hours are unavailable
-  useEffect(() => {
-    const salonBusyTime = calculateDayLoading(serviceDays?.serviceDay);
-    setBusyTime(salonBusyTime);
-  }, [serviceDays?.serviceDay]);
-
-  const onSubmit = (values: FormValues) => {
-    const formattedValues = getValues(values);
-
-    serviceApi.create(formattedValues).then(() => {
-      setSubmitted(true);
-    });
-  };
-
   const disabledHours = busyTime && [
     ...busyTime
       ?.map((el: any) => {
@@ -91,38 +88,59 @@ function SignupForm() {
       .reduce((acc: any, val: any) => [...acc, ...val], []),
   ];
 
-  console.log(disabledHours)
+  // Calculate day loading
+  useEffect(() => {
+    const salonBusyTime = calculateDayLoading(serviceDays?.serviceDay);
+    setBusyTime(salonBusyTime);
+  }, [serviceDays?.serviceDay]);
+
+  const onSubmit = (values: FormValues) => {
+    const formattedValues = getValues(values);
+
+    serviceApi.create(formattedValues).then(() => {
+      setSubmitted(true);
+    });
+  };
 
   if (loading) return <div>Loading...</div>;
 
   return (
     <div className={styles.formContainer}>
-      {isSubmitted ? (
-        <h1>DANKE SCHON</h1>
-      ) : (
-        <FormProvider {...methods}>
-          <form onSubmit={methods.handleSubmit(onSubmit)}>
-            <Select options={data} name="service" label="Bибери послугу" />
-            <DatePicker name="date" />
-            <Input name="email" label="Eмейл" placeholder="напиши емейл" />
-            <Input name="phone" label="Teлефон" placeholder="напиши телефон" />
-            <TimePicker
-              disabledHours={disabledHours}
-              label="Time"
-              name="time"
-              placeholder="напиши час"
-            />
-            <Input
-              name="instagramName"
-              label="Iнстаграм нік"
-              placeholder="напиши нік"
-            />
-            <Button label="Gо" />
-          </form>
-        </FormProvider>
-      )}
+      <div className={styles.formContainerInner}>
+        {isSubmitted ? (
+          <h1>
+            Bам на пошту прийшов лист про запис, перейдіть будь ласка по лінці
+            шоб підтвердити запис
+          </h1>
+        ) : (
+          <FormProvider {...methods}>
+            <form onSubmit={methods.handleSubmit(onSubmit)}>
+              <Select options={data} name="service" label="Bибери послугу" />
+              <DatePicker name="date" />
+              <Input name="email" label="Eмейл" placeholder="напиши емейл" />
+              <Input
+                name="phone"
+                label="Teлефон"
+                placeholder="напиши телефон"
+              />
+              <TimePicker
+                disabledHours={disabledHours}
+                label="Time"
+                name="time"
+                placeholder="напиши час"
+              />
+              <Input
+                name="instagramName"
+                label="Iнстаграм нік"
+                placeholder="напиши нік"
+              />
+              <Button label="Gо" />
+              <Link href="/cabinet">cabinetr</Link>
+            </form>
+          </FormProvider>
+        )}
+      </div>
+      {children}
     </div>
   );
 }
-
-export default SignupForm;

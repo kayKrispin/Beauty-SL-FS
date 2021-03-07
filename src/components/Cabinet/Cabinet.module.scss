@@ -1,0 +1,25 @@
+.cabinetContainer {
+  text-align: center;
+}
+
+.cabinetTitle {
+
+}
+
+.cabinetServiceContainer {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  flex-direction: column;
+}
+
+.cabinetServiceContainerItem {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+
+  span {
+    width: 100px;
+  }
+}
