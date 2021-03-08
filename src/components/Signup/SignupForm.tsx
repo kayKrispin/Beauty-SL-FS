@@ -128,6 +128,7 @@ export default function SignupForm({ children }: Props) {
                 label="Time"
                 name="time"
                 placeholder="напиши час"
+                hourMinutesRange={busyTime}
               />
               <Input
                 name="instagramName"
@@ -135,7 +136,6 @@ export default function SignupForm({ children }: Props) {
                 placeholder="напиши нік"
               />
               <Button label="Gо" />
-              <Link href="/cabinet">cabinetr</Link>
             </form>
           </FormProvider>
         )}

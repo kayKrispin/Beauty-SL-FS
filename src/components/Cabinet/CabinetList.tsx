@@ -8,19 +8,23 @@ type Service = {
   time: string;
   date: string;
   service: string;
+  isAccepted: boolean;
+  email?: string;
+  instagramName?: string;
 };
 
 type Props = {
   services: Service[];
+  mutate: () => void;
 };
 
-export default function CabinetList({ services }: Props) {
+export default function CabinetList({ services, mutate }: Props) {
   if (!services) return <div>Loading...</div>;
 
   return (
     <div className={styles.cabinetServiceContainer}>
       {services?.map((service: Service) => (
-        <CabinetListItem key={service.id} {...service} />
+        <CabinetListItem mutate={mutate} key={service.id} {...service} />
       ))}
     </div>
   );

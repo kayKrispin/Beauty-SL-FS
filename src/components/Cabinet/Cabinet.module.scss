@@ -2,8 +2,11 @@
   text-align: center;
 }
 
-.cabinetTitle {
-
+.cabinetRemoveBtn {
+  background: red!important;
+  color: white!important;
+  width: 200px!important;
+  margin-top: 0!important;
 }
 
 .cabinetServiceContainer {
@@ -20,6 +23,6 @@
   font-weight: bold;
 
   span {
-    width: 100px;
+    width: 200px;
   }
 }
