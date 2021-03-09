@@ -13,16 +13,17 @@ export default function SignupFormProvider({ providers }: Props) {
       <h3 className={styles.formContainerProviderTitle}>
         Aбо залогінся в свій кабінет і глянь на забуканий розклад
       </h3>
-      {Object.values(providers).map((provider: any) => (
-        <div key={provider.name}>
-          <Button
-            key={provider.id}
-            type="fb"
-            label={`Sign in with ${provider.name}`}
-            onClick={() => signIn(provider.id)}
-          />
-        </div>
-      ))}
+      {providers &&
+        Object?.values(providers).map((provider: any) => (
+          <div key={provider.name}>
+            <Button
+              key={provider.id}
+              type="fb"
+              label={`Sign in with ${provider.name}`}
+              onClick={() => signIn(provider.id)}
+            />
+          </div>
+        ))}
     </div>
   );
 }

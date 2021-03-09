@@ -77,10 +77,10 @@ export default function SignupForm({ children }: Props) {
     ...busyTime
       ?.map((el: any) => {
         const updatedArray = [];
-        if (el.hour) updatedArray.push(+el.hour);
+        if (el?.hour) updatedArray.push(+el.hour);
 
-        if (el.secondHour) updatedArray.push(+el.secondHour);
-        if (el.thirdHour) updatedArray.push(+el.thirdHour);
+        if (el?.secondHour) updatedArray.push(+el.secondHour);
+        if (el?.thirdHour) updatedArray.push(+el.thirdHour);
 
         return updatedArray;
       })
@@ -128,7 +128,6 @@ export default function SignupForm({ children }: Props) {
                 label="Time"
                 name="time"
                 placeholder="напиши час"
-                hourMinutesRange={busyTime}
               />
               <Input
                 name="instagramName"
