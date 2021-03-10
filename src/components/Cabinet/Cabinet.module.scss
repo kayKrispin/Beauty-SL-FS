@@ -2,8 +2,21 @@
   text-align: center;
 }
 
-.cabinetTitle {
+.cabinetRemoveBtn {
+  background: red!important;
+  color: white!important;
+  width: 200px!important;
+  margin-top: 0!important;
+}
 
+.cabinetTitleContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  span {
+    margin: 0 10px;
+  }
 }
 
 .cabinetServiceContainer {
@@ -20,6 +33,34 @@
   font-weight: bold;
 
   span {
-    width: 100px;
+    width: 200px;
+  }
+}
+
+.cabinetTitle {
+  color: lightgrey;
+  cursor: pointer;
+  position: relative;
+}
+
+
+.cabinetTitleActive {
+  color: lightblue;
+  cursor: pointer;
+  position: relative;
+
+  &:after {
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    content: "";
+    background: lightblue;
+  }
+}
+
+.cabinetForm {
+  div {
+    justify-content: center;
   }
 }

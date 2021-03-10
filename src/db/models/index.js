@@ -1,8 +1,9 @@
+import dotenv from 'dotenv';
+
 const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');
 
-import dotenv from 'dotenv';
 dotenv.config({ path: '.env.local' });
 
 const basename = path.basename(__filename);
@@ -12,12 +13,12 @@ const db = {};
 
 let sequelize;
 
-if (env) {
-  sequelize = new Sequelize(process.env[config.use_env_variable], config);
-
-} else {
-  sequelize = new Sequelize(process.env[config.use_env_variable], config);
-}
+sequelize = new Sequelize(
+  config.database,
+  config.username,
+  config.password,
+  config,
+);
 
 fs.readdirSync(__dirname)
   .filter(

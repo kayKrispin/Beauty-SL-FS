@@ -18,11 +18,11 @@ export function calculateDayLoading(days: Days) {
       let secondHour;
       let thirdHour;
 
-      if (JSON.parse(day.service).timeToComplete === `2`) {
+      if (JSON.parse(day.service)?.timeToComplete === `2`) {
         secondHour = +day.time?.slice(0, -3) + 1;
       }
 
-      if (JSON.parse(day.service).timeToComplete === `3`) {
+      if (JSON.parse(day.service)?.timeToComplete === `3`) {
         secondHour = +day.time?.slice(0, -3) + 1;
         thirdHour = +day.time?.slice(0, -3) + 2;
       }
