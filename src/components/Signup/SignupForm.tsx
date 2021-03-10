@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import Link from 'next/link';
 
 import moment, { Moment } from 'moment';
 
 import { useOptions } from '@/hooks/useOptions';
 import { useGetServiceDay } from '@/hooks/useGetServiceDay';
 import { calculateDayLoading } from '@/helpers';
+import { toast } from 'react-toastify';
 import styles from './SignupForm.module.scss';
 
 import serviceApi from '../../api/serviceApi';
@@ -36,15 +36,17 @@ type FormValues = {
   date: string | Date;
   service: Service | string;
   isAccepted: boolean;
+  isAdmin?: boolean;
 };
 
 type Props = {
   children: React.ReactNode;
+  isAdmin?: boolean;
 };
 
 const formatDate = (date: Date | any) => moment(date).format(DATE_FORMAT);
 
-export default function SignupForm({ children }: Props) {
+export default function SignupForm({ children, isAdmin }: Props) {
   const [isSubmitted, setSubmitted] = useState(false);
   const [busyTime, setBusyTime] = useState<any>([]);
   const { data, loading } = useOptions();
@@ -53,6 +55,7 @@ export default function SignupForm({ children }: Props) {
     defaultValues: {
       date: new Date(),
       time: null,
+      isAdmin: false,
     },
     reValidateMode: `onChange`,
     mode: `onChange`,
@@ -62,6 +65,8 @@ export default function SignupForm({ children }: Props) {
   const serviceDays = useGetServiceDay(formatDate(methods.watch(`date`)));
 
   const getValues = (values: FormValues) => {
+    if (isAdmin) values.isAdmin = true;
+
     values.isAccepted = false;
     values.time = values.time && values.time.format(TIME_FORMAT);
     values.date = formatDate(values.date);
@@ -99,6 +104,10 @@ export default function SignupForm({ children }: Props) {
 
     serviceApi.create(formattedValues).then(() => {
       setSubmitted(true);
+      serviceDays?.mutate();
+      if (isAdmin) {
+        toast.success(`Bи успішно заблокували цю годину!`);
+      }
     });
   };
 
@@ -107,7 +116,7 @@ export default function SignupForm({ children }: Props) {
   return (
     <div className={styles.formContainer}>
       <div className={styles.formContainerInner}>
-        {isSubmitted ? (
+        {isSubmitted && !isAdmin ? (
           <h1>
             Bам на пошту прийшов лист про запис, перейдіть будь ласка по лінці
             шоб підтвердити запис
@@ -115,26 +124,38 @@ export default function SignupForm({ children }: Props) {
         ) : (
           <FormProvider {...methods}>
             <form onSubmit={methods.handleSubmit(onSubmit)}>
-              <Select options={data} name="service" label="Bибери послугу" />
+              {!isAdmin && (
+                <Select options={data} name="service" label="Bибери послугу" />
+              )}
               <DatePicker name="date" />
-              <Input name="email" label="Eмейл" placeholder="напиши емейл" />
-              <Input
-                name="phone"
-                label="Teлефон"
-                placeholder="напиши телефон"
-              />
+              {!isAdmin && (
+                <>
+                  <Input
+                    name="email"
+                    label="Eмейл"
+                    placeholder="напиши емейл"
+                  />
+                  <Input
+                    name="phone"
+                    label="Teлефон"
+                    placeholder="напиши телефон"
+                  />
+                </>
+              )}
               <TimePicker
                 disabledHours={disabledHours}
                 label="Time"
                 name="time"
                 placeholder="напиши час"
               />
-              <Input
-                name="instagramName"
-                label="Iнстаграм нік"
-                placeholder="напиши нік"
-              />
-              <Button label="Gо" />
+              {!isAdmin && (
+                <Input
+                  name="instagramName"
+                  label="Iнстаграм нік"
+                  placeholder="напиши нік"
+                />
+              )}
+              <Button label={isAdmin ? `заблокувати час` : `Gо`} />
             </form>
           </FormProvider>
         )}

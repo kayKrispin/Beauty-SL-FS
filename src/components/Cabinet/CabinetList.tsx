@@ -11,6 +11,7 @@ type Service = {
   isAccepted: boolean;
   email?: string;
   instagramName?: string;
+  phone: string;
 };
 
 type Props = {

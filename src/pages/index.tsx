@@ -1,6 +1,4 @@
 import Head from 'next/head';
-import { SWRConfig } from 'swr';
-import { swrFetcher } from '@/api';
 import { useRouter } from 'next/router';
 
 import {
@@ -33,23 +31,14 @@ export default function Main(props: Props) {
 
   return (
     <div>
-      <SWRConfig
-        value={{
-          fetcher: swrFetcher,
-          refreshInterval: 0,
-          revalidateOnFocus: false,
-          shouldRetryOnError: false,
-        }}
-      >
-        <Head>
-          <title>Beauty Salon</title>
-          <link rel="icon" href="/favicon.ico" />
-        </Head>
+      <Head>
+        <title>Beauty Salon</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
 
-        <AuthLayout>
-          <Home {...props} />
-        </AuthLayout>
-      </SWRConfig>
+      <AuthLayout>
+        <Home {...props} />
+      </AuthLayout>
     </div>
   );
 }

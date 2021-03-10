@@ -9,6 +9,16 @@
   margin-top: 0!important;
 }
 
+.cabinetTitleContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  span {
+    margin: 0 10px;
+  }
+}
+
 .cabinetServiceContainer {
   display: flex;
   justify-content: space-between;
@@ -24,5 +34,33 @@
 
   span {
     width: 200px;
+  }
+}
+
+.cabinetTitle {
+  color: lightgrey;
+  cursor: pointer;
+  position: relative;
+}
+
+
+.cabinetTitleActive {
+  color: lightblue;
+  cursor: pointer;
+  position: relative;
+
+  &:after {
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    content: "";
+    background: lightblue;
+  }
+}
+
+.cabinetForm {
+  div {
+    justify-content: center;
   }
 }

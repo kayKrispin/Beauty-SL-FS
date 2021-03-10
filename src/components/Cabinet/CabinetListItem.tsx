@@ -1,4 +1,4 @@
-import React, { MouseEvent } from 'react';
+import React from 'react';
 import styles from '@/components/Cabinet/Cabinet.module.scss';
 import { useSession } from 'next-auth/client';
 import Button from '@/shared/Button/Button';
@@ -39,7 +39,7 @@ export default function CabinetListItem({
 
   return (
     <div className={styles.cabinetServiceContainerItem}>
-      {session?.user.email === `tarasbashuryn@gmail.com` && (
+      {session?.user.email === `tarasbashunryn@gmail.com` && (
         <>
           <span>{email}</span>
           <span>{instagramName}</span>
@@ -48,7 +48,7 @@ export default function CabinetListItem({
       <span>{time}</span>
       <span>{phone}</span>
       <span>{date}</span>
-      <span>{JSON.parse(service).label}</span>
+      <span>{JSON.parse(service)?.label}</span>
       <span>{`${!isAccepted ? `❌` : `✅`}`}</span>
       <span>
         <Button

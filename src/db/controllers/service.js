@@ -47,8 +47,10 @@ module.exports = {
         'isAccepted',
         'instagramName',
         'email',
-        'phone'
+        'phone',
+        'isAdmin',
       ],
+      where: { isAdmin: null },
     })
       .then((services) => res.status(200).send(services))
       .catch((error) => {
@@ -94,6 +96,8 @@ module.exports = {
         http://localhost:3000/acceptService/${id}</a>`,
     });
 
+    console.log(req.body);
+
     return Service.create({
       date: req.body.date,
       service: req.body.service,
@@ -102,8 +106,11 @@ module.exports = {
       time: req.body.time,
       isAccepted: req.body.isAccepted,
       instagramName: req.body.instagramName,
+      isAdmin: req.body.isAdmin,
     })
-      .then((service) => verifyEmail(mailOptions(service.id)))
+      .then(
+        (service) => !req.body.isAdmin && verifyEmail(mailOptions(service.id)),
+      )
       .then((service) => res.status(201).send(service))
       .catch((error) => res.status(400).send(error));
   },

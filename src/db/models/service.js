@@ -9,6 +9,7 @@ module.exports = (sequelize, DataTypes) => {
       date: DataTypes.STRING,
       time: DataTypes.STRING,
       isAccepted: DataTypes.BOOLEAN,
+      isAdmin: DataTypes.BOOLEAN,
     },
     {},
   );
