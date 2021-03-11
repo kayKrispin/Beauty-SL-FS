@@ -6,12 +6,12 @@ import 'rc-time-picker/assets/index.css';
 import styles from './TimePicker.module.scss';
 
 type Props = {
-  name: string;
+  name?: string;
   label?: NonNullable<React.ReactNode>;
   placeholder?: string;
   className?: string;
   textCenter?: boolean;
-  disabledHours: number[];
+  disabledHours?: number[];
 };
 
 function disabledHoursDefault(additionalHours: number[]) {
@@ -35,10 +35,12 @@ function TimePickerWrapper({ name, label, disabledHours }: Props) {
         {label}
       </label>
       <Controller
-        name={name}
+        name={name as string}
         render={({ value, onChange }) => (
           <TimePicker
-            disabledHours={() => disabledHoursDefault(disabledHours)}
+            disabledHours={() =>
+              disabledHoursDefault(disabledHours as number[])
+            }
             showSecond={false}
             onChange={onChange}
             value={value}

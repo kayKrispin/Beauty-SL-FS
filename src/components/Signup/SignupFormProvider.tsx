@@ -1,6 +1,6 @@
 import React from 'react';
-import Button from '@/shared/Button/Button';
 import { signIn, SessionProvider } from 'next-auth/client';
+import Button from '../../shared/Button/Button';
 import styles from './SignupForm.module.scss';
 
 type Props = {

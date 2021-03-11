@@ -1,7 +1,6 @@
 import React from 'react';
-import CabinetListItem from '@/components/Cabinet/CabinetListItem';
-
-import styles from '@/components/Cabinet/Cabinet.module.scss';
+import styles from './Cabinet.module.scss';
+import CabinetListItem from './CabinetListItem';
 
 type Service = {
   id: number;
@@ -15,7 +14,7 @@ type Service = {
 };
 
 type Props = {
-  services: Service[];
+  services: Service[] | undefined;
   mutate: () => void;
 };
 

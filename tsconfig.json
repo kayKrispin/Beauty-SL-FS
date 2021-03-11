@@ -6,6 +6,7 @@
       "dom.iterable",
       "esnext"
     ],
+
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -27,6 +28,10 @@
       ]
     }
   },
+  "types": [
+    "mocha",
+    "jest"
+  ],
   "exclude": [
     "node_modules"
   ],

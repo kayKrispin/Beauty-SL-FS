@@ -1,9 +1,9 @@
 import * as React from 'react';
 
-import SignupForm from '@/components/Signup/SignupForm';
-import SignupFormProvider from '@/components/Signup/SignupFormProvider';
-
 import { SessionProvider } from 'next-auth/client';
+import SignupForm from '../Signup/SignupForm';
+import SignupFormProvider from '../Signup/SignupFormProvider';
+
 import styles from './Home.module.scss';
 
 type Props = {

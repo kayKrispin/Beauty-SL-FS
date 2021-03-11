@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import useSwr from 'swr';
 
 import { useSession } from 'next-auth/client';
-import CabinetList from '@/components/Cabinet/CabinetList';
+import SignupForm from '../Signup/SignupForm';
+import CabinetList from './CabinetList';
 
-import SignupForm from '@/components/Signup/SignupForm';
 import styles from './Cabinet.module.scss';
 
 export default function Cabinet() {

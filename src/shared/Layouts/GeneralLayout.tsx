@@ -10,7 +10,6 @@ export default function GeneralLayout({ children }: Props) {
   return (
     <div>
       <Header />
-
       {children}
     </div>
   );

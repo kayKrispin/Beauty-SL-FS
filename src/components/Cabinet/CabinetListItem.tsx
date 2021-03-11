@@ -1,20 +1,20 @@
 import React from 'react';
-import styles from '@/components/Cabinet/Cabinet.module.scss';
 import { useSession } from 'next-auth/client';
-import Button from '@/shared/Button/Button';
-import serviceApi from '@/api/serviceApi';
 import { toast } from 'react-toastify';
+import Button from '../../shared/Button/Button';
+import serviceApi from '../../api/serviceApi';
+import styles from './Cabinet.module.scss';
 
 type Props = {
-  id: number;
-  time: string;
-  date: string;
+  id?: number;
+  time?: string;
+  date?: string;
   service: string;
-  isAccepted: boolean;
+  isAccepted?: boolean;
   email?: string;
   instagramName?: string;
-  mutate: () => void;
-  phone: string;
+  mutate?: () => void;
+  phone?: string;
 };
 
 export default function CabinetListItem({
@@ -33,7 +33,8 @@ export default function CabinetListItem({
   const handleDelete = (serviceId: number) => {
     serviceApi.delete(serviceId).then(() => {
       toast.success(`ви успішно відмінили запис подлец`);
-      mutate();
+      // eslint-disable-next-line no-unused-expressions
+      mutate && mutate();
     });
   };
 
@@ -52,7 +53,7 @@ export default function CabinetListItem({
       <span>{`${!isAccepted ? `❌` : `✅`}`}</span>
       <span>
         <Button
-          onClick={() => handleDelete(id)}
+          onClick={() => handleDelete(id as number)}
           className={styles.cabinetRemoveBtn}
           label="відмінити запис"
         />

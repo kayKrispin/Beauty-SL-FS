@@ -3,10 +3,10 @@ import { FormProvider, useForm } from 'react-hook-form';
 
 import moment, { Moment } from 'moment';
 
-import { useOptions } from '@/hooks/useOptions';
-import { useGetServiceDay } from '@/hooks/useGetServiceDay';
-import { calculateDayLoading } from '@/helpers';
 import { toast } from 'react-toastify';
+import { useOptions } from '../../hooks/useOptions';
+import { useGetServiceDay } from '../../hooks/useGetServiceDay';
+import { calculateDayLoading } from '../../helpers';
 import styles from './SignupForm.module.scss';
 
 import serviceApi from '../../api/serviceApi';

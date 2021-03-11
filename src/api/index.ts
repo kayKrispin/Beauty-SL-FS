@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { API_URL } from '@/api/constants';
+import { API_URL } from './constants';
 
 // SWR fetcher
 export const swrFetcher = (url: string, config?: { [key: string]: any }) =>

@@ -8,8 +8,8 @@ import {
   getSession,
 } from 'next-auth/client';
 import React, { useEffect } from 'react';
-import AuthLayout from '@/shared/Layouts/AuthLayout';
 import { NextPageContext } from 'next';
+import AuthLayout from '../shared/Layouts/AuthLayout';
 import Home from '../components/Home/Home';
 
 type Props = {

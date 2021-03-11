@@ -1,6 +1,6 @@
 import React, { MouseEvent } from 'react';
-import Button from '@/shared/Button/Button';
 import { signOut, useSession } from 'next-auth/client';
+import Button from '../Button/Button';
 
 import styles from './Header.module.scss';
 
