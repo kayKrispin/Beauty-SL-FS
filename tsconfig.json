@@ -1,43 +1,36 @@
 {
   "compilerOptions": {
-    "target": "es2018",
+    "target": "es5",
+    "module": "commonjs",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "strict": true,
+    "noImplicitThis": false,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
     "lib": [
       "dom",
       "dom.iterable",
       "esnext"
     ],
-
-    "allowJs": true,
+    "allowJs": false,
     "skipLibCheck": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
     "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "types": [
-      "node"
-    ],
-    "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
-    "baseUrl": "./src",
-    "paths": {
-      "@/*": [
-        "./*"
-      ]
-    }
+    "jsx": "preserve"
   },
-  "types": [
-    "mocha",
-    "jest"
-  ],
   "exclude": [
-    "node_modules"
+    "test",
+    "dist",
+    ".next",
+    "out",
+    "next.config.js"
   ],
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
   ]
 }

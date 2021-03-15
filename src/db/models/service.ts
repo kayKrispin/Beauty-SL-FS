@@ -1,4 +1,6 @@
-module.exports = (sequelize, DataTypes) => {
+import { Sequelize, DataTypes } from 'sequelize';
+
+module.exports = (sequelize: Sequelize) => {
   const Service = sequelize.define(
     `Service`,
     {
@@ -13,8 +15,5 @@ module.exports = (sequelize, DataTypes) => {
     },
     {},
   );
-  Service.associate = function (models) {
-    // associations can be defined here
-  };
   return Service;
 };

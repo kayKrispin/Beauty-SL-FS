@@ -3,9 +3,9 @@ import { Provider } from 'next-auth/client';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import '@/styles/global.css';
+import '../styles/global.css';
 import { SWRConfig } from 'swr';
-import { swrFetcher } from '@/api';
+import { swrFetcher } from '../api';
 import React from 'react';
 
 export default function MyApp({ Component, pageProps }: AppProps) {

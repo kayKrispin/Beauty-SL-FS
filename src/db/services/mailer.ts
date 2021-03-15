@@ -1,11 +1,12 @@
 import dotenv from 'dotenv';
+import { BasicObject, MailOptions } from '../types';
 
-const nodemailer = require('nodemailer');
+const nodemailer = require(`nodemailer`);
 
-dotenv.config({ path: '.env.local' });
+dotenv.config({ path: `.env.local` });
 
 const transporter = nodemailer.createTransport({
-  service: 'gmail',
+  service: `gmail`,
   secure: false, // true
   port: 25, // 465
   auth: {
@@ -14,12 +15,13 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-export const verifyEmail = (mailOptions) =>
-  transporter.sendMail(mailOptions, (error, info) => {
-    console.log(mailOptions)
+const verifyEmail = (mailOptions: MailOptions) =>
+  transporter.sendMail(mailOptions, (error: Error, info: BasicObject) => {
     if (error) {
       console.log(error);
     } else {
       console.log(`Email sent: ${info.response}`);
     }
   });
+
+export default verifyEmail;

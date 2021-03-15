@@ -19,4 +19,4 @@ router.get(`/servicesByAdmin/`, serviceController.servicesByAdmin);
 // service options
 router.get(`/serviceOptions/`, serviceOptionsController.list);
 
-module.exports = router;
+export default router;
