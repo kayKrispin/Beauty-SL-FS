@@ -13,12 +13,11 @@ const db: { [key: string]: any } = {};
 
 let sequelize: typeof Sequelize = {};
 
-sequelize = new Sequelize(
-  config.database,
-  config.username,
-  config.password,
-  config,
-);
+if (env) {
+  sequelize = new Sequelize(process.env[config.use_env_variable], config);
+} else {
+  sequelize = new Sequelize(process.env[config.use_env_variable], config);
+}
 
 fs.readdirSync(__dirname)
   .filter(

@@ -7,7 +7,7 @@ import indexRouter from './src/db/routes/service';
 const { dbConnect } = require(`./src/db/dbConnect`);
 
 const dev = process.env.NODE_ENV !== `production`;
-const port = parseInt(process.env.PORT as string, 10) || 3000;
+const port = parseInt(process.env.PORT as string, 10) || 8000;
 const app = next({ dev, quiet: false });
 const handle = app.getRequestHandler();
 
