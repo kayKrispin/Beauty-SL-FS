@@ -11,7 +11,7 @@ export default function SignupFormProvider({ providers }: Props) {
   return (
     <div className={styles.formContainerProvider}>
       <h3 className={styles.formContainerProviderTitle}>
-        Aбо залогінся в свій кабінет і глянь на забуканий розклад
+        Aбо залогінся в свій кабінет
       </h3>
       {providers &&
         Object?.values(providers).map((provider: any) => (

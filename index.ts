@@ -13,7 +13,7 @@ const { dbConnect } = require(`./src/db/dbConnect`);
 
 const server = express();
 
-// Connect to elephantsql
+// Server for testing
 dbConnect();
 
 server.use(cors({ credentials: true, origin: true }));

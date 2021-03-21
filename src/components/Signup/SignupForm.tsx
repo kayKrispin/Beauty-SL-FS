@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 import moment, { Moment } from 'moment';
 
@@ -111,7 +112,7 @@ export default function SignupForm({ children, isAdmin }: Props) {
     });
   };
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <CircularProgress />
 
   return (
     <div className={styles.formContainer}>
@@ -130,6 +131,12 @@ export default function SignupForm({ children, isAdmin }: Props) {
               <DatePicker name="date" />
               {!isAdmin && (
                 <>
+                  <TimePicker
+                    disabledHours={disabledHours}
+                    label="Time"
+                    name="time"
+                    placeholder="напиши час"
+                  />
                   <Input
                     name="email"
                     label="Eмейл"
@@ -142,12 +149,6 @@ export default function SignupForm({ children, isAdmin }: Props) {
                   />
                 </>
               )}
-              <TimePicker
-                disabledHours={disabledHours}
-                label="Time"
-                name="time"
-                placeholder="напиши час"
-              />
               {!isAdmin && (
                 <Input
                   name="instagramName"
@@ -155,7 +156,7 @@ export default function SignupForm({ children, isAdmin }: Props) {
                   placeholder="напиши нік"
                 />
               )}
-              <Button label={isAdmin ? `заблокувати час` : `Gо`} />
+              <Button type="submit" label={isAdmin ? `заблокувати час` : `Gо`} />
             </form>
           </FormProvider>
         )}

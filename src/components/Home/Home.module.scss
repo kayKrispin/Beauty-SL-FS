@@ -3,7 +3,9 @@
 	padding: 0;
 	height: 100vh;
 	background-position: center;
-	background-image: url("../../assets/images/such_skysight.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url("../../assets/images/bg.jpeg");
 	display: flex;
 	justify-content: center;
 	align-items: center;

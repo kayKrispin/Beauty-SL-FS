@@ -1,5 +1,7 @@
 import React from 'react';
-import { useFormContext } from 'react-hook-form';
+import { Controller } from 'react-hook-form';
+import MenuItem from '@material-ui/core/MenuItem';
+import Select from '@material-ui/core/Select';
 
 import styles from './Select.module.scss';
 
@@ -17,28 +19,28 @@ type Props = {
   options: Option[];
 };
 
-function Select({ name, label, options }: Props) {
-  const methods = useFormContext();
-
+function SelectWrapper({ name, label, options }: Props) {
   return (
     <div className={styles.slSelect}>
       <label className={styles.slLabel} htmlFor="">
         {label}
       </label>
-      <select
-        ref={methods.register}
-        className={styles.slMainSelect}
+
+      <Controller
         name={name}
-      >
-        {options &&
-          options.map((option: Option) => (
-            <option key={option.label} value={option.id}>
-              {option.label}
-            </option>
-          ))}
-      </select>
+        render={({ onChange, value }) => (
+          <Select onChange={onChange} value={value}>
+            {options &&
+              options.map((option: Option) => (
+                <MenuItem key={option.label} value={option.id}>
+                  {option.label}
+                </MenuItem>
+              ))}
+          </Select>
+        )}
+      />
     </div>
   );
 }
 
-export default Select;
+export default SelectWrapper;

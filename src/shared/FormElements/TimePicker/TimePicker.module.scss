@@ -6,7 +6,15 @@
 
 
 .slLabel {
-  color: red;
+  color: lightblue;
   font-weight: 600;
   font-size: 24px;
+}
+
+
+.rcPicker {
+
+  input {
+    background-color: transparent;
+  }
 }

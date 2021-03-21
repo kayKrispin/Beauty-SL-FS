@@ -38,6 +38,7 @@ function TimePickerWrapper({ name, label, disabledHours }: Props) {
         name={name as string}
         render={({ value, onChange }) => (
           <TimePicker
+            className={styles.rcPicker}
             disabledHours={() =>
               disabledHoursDefault(disabledHours as number[])
             }

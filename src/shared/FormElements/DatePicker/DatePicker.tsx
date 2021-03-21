@@ -2,6 +2,7 @@ import React from 'react';
 import Calendar from 'react-calendar';
 import { Controller, useFormContext } from 'react-hook-form';
 import 'react-calendar/dist/Calendar.css';
+import styles from './Date.module.scss';
 
 type Props = {
   name: string;
@@ -21,12 +22,12 @@ function DatePicker({ name }: Props) {
   }
 
   return (
-    <div>
+    <div className={styles.calendar}>
       <Controller
         name={name}
-        render={({ value, onChange }) => {
-          return <Calendar value={value} onChange={(e) => onChange(e)} />;
-        }}
+        render={({ value, onChange }) => (
+          <Calendar className={styles.calendar} value={value} onChange={(e) => onChange(e)} />
+        )}
       />
     </div>
   );

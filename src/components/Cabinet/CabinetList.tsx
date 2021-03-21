@@ -1,4 +1,6 @@
 import React from 'react';
+import CircularProgress from '@material-ui/core/CircularProgress';
+
 import styles from './Cabinet.module.scss';
 import CabinetListItem from './CabinetListItem';
 
@@ -19,7 +21,7 @@ type Props = {
 };
 
 export default function CabinetList({ services, mutate }: Props) {
-  if (!services) return <div>Loading...</div>;
+  if (!services) return <CircularProgress />;
 
   return (
     <div className={styles.cabinetServiceContainer}>
