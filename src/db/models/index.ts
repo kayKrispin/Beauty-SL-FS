@@ -7,7 +7,7 @@ const Sequelize = require(`sequelize`);
 dotenv.config({ path: `.env.local` });
 
 const basename = path.basename(__filename);
-const env = process.env.NODE_ENV || `development`;
+const env = process.env.NODE_ENV || 'development';
 const config = require(`${__dirname}/../config/config.json`)[env];
 const db: { [key: string]: any } = {};
 
@@ -15,6 +15,7 @@ let sequelize: typeof Sequelize = {};
 
 if (env) {
   sequelize = new Sequelize(process.env[config.use_env_variable], config);
+
 } else {
   sequelize = new Sequelize(process.env[config.use_env_variable], config);
 }

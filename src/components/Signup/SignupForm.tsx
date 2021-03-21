@@ -23,6 +23,12 @@ import TimePicker from '../../shared/FormElements/TimePicker/TimePicker';
 const TIME_FORMAT = `HH:mm`;
 const DATE_FORMAT = `MM-DD`;
 
+type BusyTime = {
+  hour: string | undefined;
+  secondHour: string | undefined;
+  thirdHour: string | undefined;
+};
+
 type Service = {
   id: number;
   time: string;
@@ -35,7 +41,7 @@ type FormValues = {
   email: string;
   time: Moment | string | any;
   date: string | Date;
-  service: Service | string;
+  service: Service | string | any;
   isAccepted: boolean;
   isAdmin?: boolean;
 };
@@ -67,12 +73,13 @@ export default function SignupForm({ children, isAdmin }: Props) {
 
   const getValues = (values: FormValues) => {
     if (isAdmin) values.isAdmin = true;
+    else values.isAdmin = false;
 
     values.isAccepted = false;
     values.time = values.time && values.time.format(TIME_FORMAT);
     values.date = formatDate(values.date);
     values.service = JSON.stringify(
-      data.find((el: any) => el.id.toString() === values.service),
+      data.find((el: Service) => el.id === values.service),
     );
 
     return values;
@@ -81,7 +88,7 @@ export default function SignupForm({ children, isAdmin }: Props) {
   // Define witch hours are unavailable
   const disabledHours = busyTime && [
     ...busyTime
-      ?.map((el: any) => {
+      ?.map((el: BusyTime) => {
         const updatedArray = [];
         if (el?.hour) updatedArray.push(+el.hour);
 
@@ -90,8 +97,8 @@ export default function SignupForm({ children, isAdmin }: Props) {
 
         return updatedArray;
       })
-      .filter((item: any) => [...item])
-      .reduce((acc: any, val: any) => [...acc, ...val], []),
+      .filter((item: []) => [...item])
+      .reduce((acc: [], val: []) => [...acc, ...val], []),
   ];
 
   // Calculate day loading
@@ -112,7 +119,7 @@ export default function SignupForm({ children, isAdmin }: Props) {
     });
   };
 
-  if (loading) return <CircularProgress />
+  if (loading) return <CircularProgress />;
 
   return (
     <div className={styles.formContainer}>
@@ -156,7 +163,10 @@ export default function SignupForm({ children, isAdmin }: Props) {
                   placeholder="напиши нік"
                 />
               )}
-              <Button type="submit" label={isAdmin ? `заблокувати час` : `Gо`} />
+              <Button
+                type="submit"
+                label={isAdmin ? `заблокувати час` : `Gо`}
+              />
             </form>
           </FormProvider>
         )}

@@ -1,11 +1,6 @@
 {
   "development": {
-    "username": "taras",
-    "password": "tarasdb",
-    "database": "tarasdb",
-    "host": "127.0.0.1",
-    "dialect": "postgres",
-    "operatorsAliases": false
+    "use_env_variable": "DATABASE_URL"
   },
   "production": {
     "use_env_variable": "DATABASE_URL"
