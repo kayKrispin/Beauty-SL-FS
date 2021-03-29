@@ -32,3 +32,6 @@ cabinet where they can decline their acceptance. Admin can block whole days🔥
 
 
 <img src="/docs/demo.png"/>
+
+[![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=kayKrispin)](https://github.com/anuraghazra/github-readme-stats)
+
